@@ -1,0 +1,35 @@
+{
+  "name": "@x0pa-ai/stata",
+  "version": "0.1.0",
+  "description": "Static meta data for X0PA projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "husky": ">=1",
+    "lint-staged": ">=8",
+    "prettier": "^1.18.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,css,json,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doublepithre/stata.git"
+  },
+  "author": "doublepithre",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/doublepithre/stata/issues"
+  },
+  "homepage": "https://github.com/doublepithre/stata#readme"
+}

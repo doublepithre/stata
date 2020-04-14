@@ -1,0 +1,11 @@
+.git*
+docs/
+examples/
+samples/
+support/
+test/
+bk/
+pithre/
+testing.js
+.DS_Store
+*.bk.*

@@ -1,0 +1,21 @@
+node_modules
+yarn.lock
+
+# Logs
+logs
+*.log
+
+.DS_Store
+.env*
+.vscode
+.idea/
+
+# Ignore all build output
+build/
+
+# Ignore custom pithre files & folders
+*.pithre
+*.bk
+pithre/
+bk/
+*.bk.js
