@@ -1,73 +1,116 @@
 "use strict";
 
 const dbterms = [
+  "early childhood education",
+  "primary education",
+  "lower secondary education",
+  "upper secondary education",
+  "high school or equivalent",
+  "certification",
   "vocational",
-  "self-employed",
-  "trainee",
-  "freelance",
-  "internship",
-  "temporary",
-  "contract",
-  "permanent"
+  "diploma",
+  "associate degree",
+  "bachelor's degree",
+  "master's degree",
+  "phd",
+  "medicine"
 ];
 
-const terms = {
-  vocational: 8,
-  "self-employed": 7,
-  trainee: 6,
-  freelance: 5,
-  internship: 4,
-  temporary: 3,
-  contract: 2,
-  permanent: 1,
+const qualificationTypes = [
+  {
+    typeId: 1,
+    typeName: "Early Childhood Education"
+  },
+  {
+    typeId: 2,
+    typeName: "Primary Education"
+  },
+  {
+    typeId: 3,
+    typeName: "Lower Secondary Education"
+  },
+  {
+    typeId: 4,
+    typeName: "Upper Secondary Education"
+  },
+  {
+    typeId: 5,
+    typeName: "High School or Equivalent"
+  },
+  {
+    typeId: 6,
+    typeName: "Certification"
+  },
+  {
+    typeId: 7,
+    typeName: "Vocational"
+  },
+  {
+    typeId: 8,
+    typeName: "Diploma"
+  },
+  {
+    typeId: 9,
+    typeName: "Associate Degree"
+  },
+  {
+    typeId: 10,
+    typeName: "Bachelor's Degree"
+  },
+  {
+    typeId: 11,
+    typeName: "Master's Degree"
+  },
+  {
+    typeId: 12,
+    typeName: "PhD"
+  },
+  {
+    typeId: 13,
+    typeName: "Medicine"
+  }
+];
 
-  8: "vocational",
-  7: "self-employed",
-  6: "trainee",
-  5: "freelance",
-  4: "internship",
-  3: "temporary",
-  2: "contract",
-  1: "permanent",
+const qualifications = {
+  "early childhood education": 1,
+  "primary education": 2,
+  "lower secondary education": 3,
+  "upper secondary education": 4,
+  "high school or equivalent": 5,
+  certification: 6,
+  vocational: 7,
+  diploma: 8,
+  "associate degree": 9,
+  "bachelor's degree": 10,
+  "master's degree": 11,
+  phd: 12,
+  medicine: 13,
 
-  // infer
-  intern: 4,
-  "full-time": 1,
-  "part-time": 2,
-  part_time: 2,
-  full_time: 1,
-  "full time": 1,
-  "fulltime": 1,
-  "part time": 2,
-  "parttime": 2,
-  "intern-ship": 4,
-  "intern ship": 4,
-  "selfemployed": 7,
-  volunteer: 3,
-  undefined: 1,
+  "bachelors degree": 10,
+  "masters degree": 11
 };
 
-const getTerm = (input, t) => {
+const getQualification = (input, t) => {
   const linput = (input + "").toLowerCase();
   if (t === "id") {
     if (typeof input === "string") {
-      return terms[linput] || 1;
+      return qualifications[linput] || 10;
     } else {
-      return 1;
+      return 10;
     }
   }
   if (t === "name") {
     if (typeof input === "number") {
-      return terms[Number(linput)] || "permanent";
+      return qualifications[Number(linput)] || "bachelor's degree";
     } else {
-      return dbterms.includes(linput) ? linput : "permanent";
+      return dbterms.includes(linput) ? linput : "bachelor's degree";
     }
   }
 };
 
 module.exports = {
-  name: input => getTerm(input, "name"),
-  id: input => getTerm(input, "id"),
+  name: input => getQualification(input, "name"),
+  id: input => getQualification(input, "id"),
   get list() {
     return terms;
   }
