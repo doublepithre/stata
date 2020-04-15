@@ -1,10 +1,11 @@
 {
   "name": "@x0pa-ai/stata",
+  "private": true,
   "version": "0.1.1",
   "description": "Static meta data for X0PA projects",
   "main": "index.js",
   "scripts": {
-    "test": "echo Hola"
+    "test": "echo 1"
   },
   "devDependencies": {
     "husky": ">=1",
@@ -23,12 +24,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/doublepithre/stata.git"
+    "url": "git+https://github.com/X0PA-AI-DEV/stata.git"
   },
   "author": "doublepithre",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/doublepithre/stata/issues"
+    "url": "https://github.com/X0PA-AI-DEV/stata/issues"
   },
-  "homepage": "https://github.com/doublepithre/stata#readme"
+  "homepage": "https://github.com/X0PA-AI-DEV/stata#readme"
 }
