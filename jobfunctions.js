@@ -84,15 +84,15 @@ const getJobFunction = (input, client, t) => {
   if (t === "id") {
     if (typeof input === "string") {
       if (!client) {
-        return jobFunctions[linput] || 94;
+        return jobFunctions[linput] || 72;
       }
       const clientFunctions = clientJobFunctions[lclient] || {};
       if (lclient && !clientFunctions) {
-        return 78;
+        return 72;
       }
-      return clientFunctions[linput] || 78;
+      return clientFunctions[linput] || 72;
     } else {
-      return client ? 78 : 94;
+      return client ? 72 : 72;
     }
   }
   if (t === "name") {
