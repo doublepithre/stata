@@ -71,6 +71,27 @@ const qualificationTypes = [
   }
 ];
 
+/*
+  specialeducation
+  some high school or equivalent
+  ged
+  secondary
+  high school or equivalent
+  certification
+  vocational
+  some college
+  HND/HNC or equivalent
+  associates
+  international
+  bachelors
+  some post-graduate
+  masters
+  intermediategraduate
+  professional
+  postprofessional
+  doctorate
+  postdoctorate
+*/
 const qualifications = {
   "early childhood education": 1,
   "primary education": 2,
@@ -86,15 +107,64 @@ const qualifications = {
   phd: 12,
   medicine: 13,
 
+  //infer
   "bachelors degree": 10,
-  "masters degree": 11
+  "masters degree": 11,
+  postdoctorate: 12,
+  doctorate: 12
 };
 
 const getQualification = (input, t) => {
   const linput = (input + "").toLowerCase();
   if (t === "id") {
     if (typeof input === "string") {
-      return qualifications[linput] || 10;
+      let qualTypeId = qualifications[linput];
+      if (qualTypeId) return qualTypeId;
+      if (input.includes("bachelor")) {
+        return 10;
+      }
+      if (input.includes("master")) {
+        return 11;
+      }
+      if (input.includes("phd")) {
+        return 12;
+      }
+      if (input.includes("medicine")) {
+        return 13;
+      }
+      if (input.includes("associate")) {
+        return 9;
+      }
+      if (input.includes("diploma")) {
+        return 8;
+      }
+      if (input.includes("vocational")) {
+        return 7;
+      }
+      if (input.includes("certific")) {
+        return 6;
+      }
+      if (
+        input.includes("high school") ||
+        input.includes("highschool") ||
+        input.includes("high")
+      ) {
+        return 5;
+      }
+      if (input.includes("secondary")) {
+        if (input.includes("upper")) {
+          return 4;
+        }
+        if (input.includes("lower")) {
+          return 3;
+        }
+      }
+      if (input.includes("primary")) {
+        return 2;
+      }
+      if (input.includes("early") || input.includes("childhood")) {
+        return 1;
+      }
     } else {
       return 10;
     }

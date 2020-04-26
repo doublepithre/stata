@@ -82,6 +82,12 @@ const x = require("../index");
 // console.log(x.jobfunctions.id('0 year'));
 // console.log(x.jobfunctions.id('20+ YEARS'));
 // console.log(x.jobfunctions.id(5));
+console.log(x.jobfunctions.id("Others"));
+console.log(x.jobfunctions.id("Others", "fastjobs"));
+console.log(x.jobfunctions.id("Management"));
+console.log(x.jobfunctions.id("Management", "FastJobs"));
+console.log(x.jobfunctions.id("entertainment"));
+console.log(x.jobfunctions.id("entertainment", "FastJobs"));
 
 // console.log(x.jobfunctions.name());
 // console.log(x.jobfunctions.name({}));

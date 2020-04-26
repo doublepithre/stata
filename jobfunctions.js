@@ -43,13 +43,63 @@ const jobFunctions = {
   accounting: 1
 };
 
-const getJobFunction = (input, t) => {
+const clientJobFunctions = {
+  fastjobs: {
+    "accounting / finance": 53,
+    "admin & office services": 54,
+    "advertising / promotions / events": 55,
+    "arts / creative": 56,
+    "audit / taxation": 57,
+    "beauty / personal care": 58,
+    "community, social services, religion and non-profit": 59,
+    "corporate planning / business development": 60,
+    "customer service": 61,
+    "data / statistical analysis": 62,
+    "design / specifications": 63,
+    "education / training & development": 64,
+    "engineering / technical": 65,
+    "environment / health & safety": 66,
+    "hospitality and tourism": 67,
+    "human resources": 68,
+    "information technology": 69,
+    "legal / secretarial services": 70,
+    "logistics / supply chain management": 71,
+    management: 72,
+    marketing: 73,
+    "medical practitioners": 74,
+    "merchandising / purchasing": 75,
+    nursing: 76,
+    operations: 77,
+    others: 78,
+    "pharmaceutical services": 79,
+    "product development": 80,
+    "production / manufacturing": 81,
+    "project management": 82,
+    "public relations / communications": 83,
+    "quality control / assurance": 84,
+    "r&d / sciences / laboratory": 85,
+    "real estate / property management": 86,
+    sales: 87,
+    security: 88,
+    "therapy / other healthcare": 89
+  }
+};
+
+const getJobFunction = (input, client, t) => {
   const linput = (input + "").toLowerCase();
+  const lclient = (client + "").toLowerCase();
   if (t === "id") {
     if (typeof input === "string") {
-      return jobFunctions[linput] || 94;
+      if (!client) {
+        return jobFunctions[linput] || 94;
+      }
+      const clientFunctions = clientJobFunctions[lclient] || {};
+      if (lclient && !clientFunctions) {
+        return 78;
+      }
+      return clientFunctions[linput] || 78;
     } else {
-      return 94;
+      return client ? 78 : 94;
     }
   }
   if (t === "name") {
@@ -62,8 +112,8 @@ const getJobFunction = (input, t) => {
 };
 
 module.exports = {
-  name: input => getJobFunction(input, "name"),
-  id: input => getJobFunction(input, "id"),
+  name: (input, client) => getJobFunction(input, client, "name"),
+  id: (input, client) => getJobFunction(input, client, "id"),
   get list() {
     return jobFunctions;
   }
