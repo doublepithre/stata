@@ -1558,50 +1558,60 @@ const uc = {
   countryCode: null
 };
 
-const getCountryObj = (input) => {
-  if (input && input.length > 1) {
-    const linput = (input + "").toLowerCase();
-    if (linput.length === 2) {
-      const f = countries.filter(c => c.countryShort.toLowerCase() === linput);
-      return f[0] ? f[0] : uc;
-    } else {
-      const f = countries.filter(c => c.countryFull.toLowerCase() === linput);
-      return f[0] ? f[0] : uc;
+const getCountryObj = input => {
+  if (!input) {
+    return null;
+  }
+  if (!isNaN(Number(input))) {
+    const f = countries.filter(c => Number(c.countryId) === Number(input));
+    return f[0] ? f[0] : uc;
+  } else {
+    if (input && input.length > 1) {
+      const linput = (input + "").toLowerCase();
+      if (linput.length === 2) {
+        const f = countries.filter(
+          c => c.countryShort.toLowerCase() === linput
+        );
+        return f[0] ? f[0] : uc;
+      } else {
+        const f = countries.filter(c => c.countryFull.toLowerCase() === linput);
+        return f[0] ? f[0] : uc;
+      }
     }
   }
   return uc;
 };
 
-const getCountryId = (input) => {
+const getCountryId = input => {
   const o = getCountryObj(input);
   return o.countryId;
 };
 
-const getCountryCode = (input) => {
+const getCountryCode = input => {
   const o = getCountryObj(input);
   return o.countryCode;
 };
 
-const getCountryFull = (input) => {
+const getCountryFull = input => {
   const o = getCountryObj(input);
   return o.countryFull.toLowerCase();
 };
 
-const getCountryShort = (input) => {
-  if(input && input.length === 2) {
+const getCountryShort = input => {
+  if (input && input.length === 2) {
     return input.toLowerCase();
   }
   const o = getCountryObj(input);
-  return (o.countryShort.toLowerCase());
+  return o.countryShort.toLowerCase();
 };
 
 module.exports = {
-    get: getCountryObj,
-    id: getCountryId,
-    code: getCountryCode,
-    short: getCountryShort,
-    full: getCountryFull,
-    get list() {
-      return countries;
-    }
+  get: getCountryObj,
+  id: getCountryId,
+  code: getCountryCode,
+  short: getCountryShort,
+  full: getCountryFull,
+  get list() {
+    return countries;
+  }
 };

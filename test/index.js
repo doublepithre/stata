@@ -29,6 +29,13 @@ const x = require("../index");
 // console.log(x.countries.full({}));
 // console.log(x.countries.full({a: 1}));
 
+console.log(x.countries.get("IN"));
+console.log(x.countries.get("INDIA"));
+console.log(x.countries.get(1));
+console.log(x.countries.get({}));
+console.log(x.countries.get({ a: 1 }));
+console.log(x.countries.get());
+
 // console.log('\n=====TERMS======');
 // // console.log(x.terms.list);
 
