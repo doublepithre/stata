@@ -1567,7 +1567,7 @@ const getCountryObj = input => {
     return f[0] ? f[0] : uc;
   } else {
     if (input && input.length > 1) {
-      const linput = (input + "").toLowerCase();
+      const linput = (input + "").toLowerCase().trim();
       if (linput.length === 2) {
         const f = countries.filter(
           c => c.countryShort.toLowerCase() === linput
