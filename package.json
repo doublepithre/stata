@@ -1,7 +1,7 @@
 {
   "name": "@x0pa-ai/stata",
   "private": true,
-  "version": "0.1.10",
+  "version": "0.1.12",
   "description": "Static meta data for X0PA projects",
   "main": "index.js",
   "scripts": {
