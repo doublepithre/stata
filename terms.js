@@ -45,6 +45,8 @@ const terms = {
   "selfemployed": 7,
   volunteer: 3,
   undefined: 1,
+  "permanent / contract": 1,
+  "permanent/contract": 1,
 };
 
 const getTerm = (input, t) => {

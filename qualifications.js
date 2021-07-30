@@ -111,7 +111,21 @@ const qualifications = {
   "bachelors degree": 10,
   "masters degree": 11,
   postdoctorate: 12,
-  doctorate: 12
+  doctorate: 12,
+
+  'doctorate': 12,
+  'master': 11,
+  'degree': 10,
+  'prof qualification': 12,
+  'post grad diploma': 12,
+  'diploma': 8,
+  'a level and/or equivalent': 5,
+  'ite/tech/teaching cert': 8,
+  'o level': 4,
+  'n level': 4,
+  'incomplete sec education': 3,
+  'primary': 2,
+  'no formal education': 1,
 };
 
 const getQualification = (input, t) => {
