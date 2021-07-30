@@ -40,7 +40,26 @@ const jobFunctions = {
   entertainment: 85,
   sports: 86,
   "writing and editing": 87,
-  others: 88
+  others: 88,
+
+  'accounting / finance': 1,
+  'accounting/finance': 1,
+  'administration': 2,
+  'advertising and marketing': 3,
+  'communications and media': 23,
+  'education': 11,
+  'energy': 88,
+  'facilities': 88,
+  'food & beverage': 15,
+  'food&beverage': 15,
+  'healthcare': 16,
+  'human resource': 18,
+  'hospitality': 17,
+  'information technology': 19,
+  'it': 19,
+  'logistics': 88,
+  'transport': 88,
+  'others*': 88,
 };
 
 const clientJobFunctions = {

@@ -34,6 +34,10 @@ const types = {
   "selfemployed": 1,
   volunteer: 2,
   undefined: 1,
+
+  "full-time / part-time": 1,
+  "full-time/part-time": 1,
+  "casual": 2,
 };
 
 const getHourTypes = (input, t) => {
