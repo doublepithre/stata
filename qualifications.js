@@ -113,23 +113,34 @@ const qualifications = {
   postdoctorate: 12,
   doctorate: 12,
 
-  'doctorate': 12,
-  'master': 11,
-  'degree': 10,
-  'prof qualification': 12,
-  'post grad diploma': 12,
-  'diploma': 8,
-  'a level and/or equivalent': 5,
-  'ite/tech/teaching cert': 8,
-  'o level': 4,
-  'n level': 4,
-  'incomplete sec education': 3,
-  'primary': 2,
-  'no formal education': 1,
+  doctorate: 12,
+  master: 11,
+  degree: 10,
+  "prof qualification": 12,
+  "post grad diploma": 12,
+  diploma: 8,
+  "a level and/or equivalent": 5,
+  "ite/tech/teaching cert": 8,
+  "o level": 4,
+  "n level": 4,
+  "incomplete sec education": 3,
+  primary: 2,
+  "no formal education": 1,
+  "diploma / polytechnic/ ite diploma, advanced / specialist": 8,
+  "upper secondary education / gce o level": 4,
+  "lower secondary education / secondary education": 3,
+  "primary education / primary education with psle": 2,
+  "early childhood education / no formal qualification": 1,
+  "certification / professional certificate / nitec": 6,
+  "high school or equivalent / pre-u / 'a' level": 5,
+  "phd / doctorate or equivalent": 12,
+  "master's degree or equivalent": 11,
+  "bachelor's degree or equivalent": 10
 };
 
 const getQualification = (input, t) => {
-  const linput = (input + "").toLowerCase();
+  input = (input + "").toLowerCase().trim();
+  const linput = (input + "").toLowerCase().trim();
   if (t === "id") {
     if (typeof input === "string") {
       let qualTypeId = qualifications[linput];
